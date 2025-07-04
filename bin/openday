@@ -5,11 +5,11 @@ import yolov5
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
-from pathlib import Path
+#from pathlib import Path
 
-resource_path = Path(__file__).parent #/ "data"
-model_filename = resource_path.joinpath('best.pt')
-print("Looking for data in %s" % model_filename) 
+#resource_path = Path(__file__).parent #/ "data"
+#model_filename = resource_path.joinpath('best.pt')
+#print("Looking for data in %s" % model_filename) 
 
 #if len(sys.argv)==1:    
 #    print("Need options:")
@@ -77,8 +77,13 @@ def getbestattack(frame,x1,y1,x2,y2,boxspace = 0):
 
 catstrs = ['no motor','nopriority','speed40']
 #load custom model
-model = yolov5.load(model_filename)
-  
+try:
+    model = yolov5.load("best.pt")
+except:
+    import urllib.request
+    urllib.request.urlretrieve("https://github.com/SheffieldML/roadsign/raw/refs/heads/main/bin/best.pt", "best.pt")
+    model = yolov5.load("best.pt")
+
 # set model parameters
 model.conf = 0.15  # NMS confidence threshold
 model.iou = 0.35  # NMS IoU threshold
