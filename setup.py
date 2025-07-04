@@ -10,7 +10,7 @@ setup(
   download_url = 'https://github.com/SheffieldML/roadsign.git',
   keywords = ['open day','adversarial examples','road signs'],
   classifiers = [],
-  install_requires=['yolov5==7.0.0','opencv-python==4.7.0.68'],
+  install_requires=['yolov5 @ git+https://github.com/SheffieldML/yolov5-pip.git','opencv-python==4.7.0.68'],
   scripts=['bin/openday']
 )
 
