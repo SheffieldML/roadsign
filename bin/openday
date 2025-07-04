@@ -11,16 +11,16 @@ resource_path = Path(__file__).parent #/ "data"
 model_filename = resource_path.joinpath('best.pt')
 print("Looking for data in %s" % model_filename) 
 
-if len(sys.argv)==1:    
-    print("Need options:")
-    print("            python openday.py THRESHOLD [CAMERA] [ATTACK]")
-    print("\nExample:")
-    print("            python openday.py 0.3")
-    print("this sets a threshold of 30% on the output before it gets shown, uses default camera id = 0, and doesn't add a recommended 'attack' square.")
-    print("")
-    print("            python openday.py 0.4 0 attack")
-    print("this sets a threshold of 40% on the output before it gets shown, uses camera id = 0, and adds the recommended 'attack' square.")
-    sys.exit()
+#if len(sys.argv)==1:    
+#    print("Need options:")
+#    print("            python openday.py [THRESHOLD] [CAMERA] [ATTACK]")
+#    print("\nExample:")
+#    print("            python openday.py 0.3")
+#    print("this sets a threshold of 30% on the output before it gets shown, uses default camera id = 0, and doesn't add a recommended 'attack' square.")
+#    print("")
+#    print("            python openday.py 0.4 0 attack")
+#    print("this sets a threshold of 40% on the output before it gets shown, uses camera id = 0, and adds the recommended 'attack' square.")
+#    sys.exit()
 #       
 
 
@@ -92,7 +92,7 @@ cv2.namedWindow("preview",cv2.WINDOW_NORMAL)
 if len(sys.argv)>1:
     threshold = float(sys.argv[1])
 else:
-    threshold = 0.3
+    threshold = 0.35
     
 if len(sys.argv)>2:
     camid = int(sys.argv[2])
